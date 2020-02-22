@@ -17,14 +17,17 @@ Changyu Deng (dengcy@umich.edu), Can Qin (qin.ca@husky.neu.edu), Wei Lu (weilu@u
 There are two examples in the paper, one with coarse mesh and the other with fine mesh. Their code is in their individual folders; they do not share files. The names of the files in two folders are the same; the functions are the same as well.
 
 ### Code
-* <strong>func_*.m</strong>: matlab function scripts
+* <strong>force.m</strong>: MATLAB script to generate a _COMSOL_ file, used to calculate elastic energy based on given density distribution
+* <strong>force_optimized.m</strong>: MATLAB script to generate a _COMSOL_ file, used to calculate optimal configuration based on MMA
+
+* <strong>func_*.m</strong>: MATLAB function scripts
 	* <strong>func_inputs_gen.m</strong>: a function to generate
   
-* <strong>main_*.m</strong>: matlab code to generate data (stored in the subfolders)
+* <strong>main_*.m</strong>: MATLAB code to generate data (stored in the subfolders)
 	* <strong>main_nl.m</strong>: code to generate data in subfolder "data_nl"
 	* <strong>main_wl.m</strong>: code to generate data in subfolder "data_wl"
 
-* <strong>plot_*.m</strong>: matlab code to plot the data
+* <strong>plot_*.m</strong>: MATLAB code to plot the data
 	* <strong>plot_b_c.m</strong>: plot figures b and c
 	* <strong>plot_d_e_f.m</strong>: plot figures d, e, and f
   

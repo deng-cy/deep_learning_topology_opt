@@ -1,7 +1,7 @@
 # Code for _Deep-Learning-Enabled Simulated Annealing for Topology Optimization_
 This repository contains code of the following paper:
 
-Deng, Changyu, Can Qin, and Wei Lu. "Deep-Learning-Enabled Simulated Annealing for Topology Optimization." arXiv preprint arXiv:2002.01927 (2020) [Download](https://arxiv.org/pdf/2002.01927.pdf) 
+Changyu Deng, Can Qin, and Wei Lu. "Deep-Learning-Enabled Simulated Annealing for Topology Optimization." arXiv preprint arXiv:2002.01927 (2020) [Download](https://arxiv.org/pdf/2002.01927.pdf) 
 
 ## Contact
 Changyu Deng (dengcy@umich.edu), Can Qin (qin.ca@husky.neu.edu), Wei Lu (weilu@umich.edu)

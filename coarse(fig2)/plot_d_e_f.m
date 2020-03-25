@@ -1,4 +1,4 @@
-
+% run the sections sepeartely
 %% figure 2d
 delta=0.25; %element size
 ratio=0.5; %ratio of material

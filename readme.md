@@ -43,14 +43,18 @@ Data are not uploaded on Github. Please download from [Google Drive](https://dri
 
 ## How to run
 
-1. Run __force.m__ by COMSOL to generate __force.mph__
+1. Run __force.m__ by _COMSOL_ to generate __force.mph__
 2. Run __main_nl.m__ or __main_wl.m__. Remember to connect MATLAB with COMSOL server
 3. Run __plot_b_c.m__
-4. Run __force_optimized.m__ by COMSOL to generate __force_optimized.mph__
+4. Run __force_optimized.m__ by _COMSOL_ to generate __force_optimized.mph__
 5. Run __plot_d_e_f.m__
 
 ## Reproducibility
 Please note that the reproducibility is not guranteed due to PyTorch platform (see its [documentation](https://pytorch.org/docs/stable/notes/randomness.html#reproducibility)).
+
+## Change log
+
+2020/04/20: Changed paper title from "Deep-Learning-Enabled Simulated Annealing for Topology Optimization".
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)

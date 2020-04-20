@@ -1,4 +1,4 @@
-% run the sections sepeartely
+% Comsol server required
 %% figure 3d
 delta=0.1; %element size
 ratio=0.5; %ratio of material
@@ -19,8 +19,9 @@ end
 func_outputs(input,a,b,delta,filename,1)
 
 %% figure 3e
+figure;
 e0=1/func_outputs(reshape(ones(11,11)*0.5,1,11,11),1,1,0.1,'temp.txt');
-load('./loop/1000ntrain_train_step12.mat')
+load('./data_wl/1000ntrain_train_step12.mat')
 outputs=outputs([1,1001:end]);
 inputs=inputs([1,1001:end],:,:);
 [val, idx]=max(outputs);
@@ -29,6 +30,7 @@ func_outputs(input,a,b,delta,filename,1);
 E_tilt=1/val/e0
 
 %% figure 3f
+figure;
 e0=1/func_outputs(reshape(ones(11,11)*0.5,1,11,11),1,1,0.1,'temp.txt');
 load('./data_wl/1000ntrain_train_step79.mat');
 outputs=outputs([1,1001:end]);

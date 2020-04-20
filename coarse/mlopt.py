@@ -113,7 +113,7 @@ class mlopt():
     def opt_anneal(self,c=1000,filename=None,ratio=None,maxiter=1000,seed=123):
         filename=self.filename+'_opt' if filename==None else filename.split('.mat')[0]
         if ratio==None: ratio=self.ratio
-        mask=np.reshape(self.mask,self.img_ele,-1)  
+        mask=np.reshape(self.mask,-1)
         lw = [-1.] * self.img_ele
         up = [1.] * self.img_ele
         bound=list(zip(lw, up))
@@ -121,25 +121,22 @@ class mlopt():
         self.net.eval()
         self.net.cpu()
         x_out=np.zeros((1,self.img_size1,self.img_size2))
-        local_opt=[]
+
         def func_ori(x):
             FloatTensor=torch.FloatTensor
             x=FloatTensor(x)
             prediction=self.net(x.unsqueeze(0))
-            return prediction.detach().numpy()[0,0]
+            return float(prediction.detach().numpy())
 
         def func_uncon(x):
             nonlocal count
             count+=1
-            return (sum(np.multiply((x+1)/2.,mask))-ratio)**2*c-func_ori(x)
-        
-        def record(x,f,context):
-            local_opt.append((x+1)/2)
+            return (np.dot((x+1)/2,mask)-ratio)**2*c-func_ori(x)
             
         time_start=time.time()      
-        ret = dual_annealing(func_uncon, bounds=list(zip(lw, up)), seed=seed,maxiter=maxiter,maxfun=1e10,callback=record)
-        x_out[0,:,:]=(np.reshape(ret.x,(self.img_size1,self.img_size2))+1)/2 #unnormalize
-        
+        ret = dual_annealing(func_uncon, bounds=list(zip(lw, up)), seed=seed,maxiter=maxiter,maxfun=1e10)
+
+        x_out[0,:,:]=(np.reshape(ret.x,(self.img_size1,self.img_size2))+1.)/2. #unnormalize
         scio.savemat(filename+'.mat', {'base':x_out,'prediction':-ret.fun*self.std_of_y+self.mean_of_y})
 
         time_end=time.time()

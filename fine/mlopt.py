@@ -113,7 +113,7 @@ class mlopt():
     def opt_anneal(self,c=1000,filename=None,ratio=None,maxiter=1000,seed=123):
         filename=self.filename+'_opt' if filename==None else filename.split('.mat')[0]
         if ratio==None: ratio=self.ratio
-        mask=np.reshape(self.mask,self.img_ele,-1)  
+        mask=np.reshape(self.mask,(self.img_ele,-1)) 
         lw = [-1.] * self.img_ele
         up = [1.] * self.img_ele
         bound=list(zip(lw, up))

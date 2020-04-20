@@ -12,8 +12,9 @@ nl(:,2:3)=1./nl(:,2:3);
 wl(:,2:3)=1./wl(:,2:3);
 %% prediction error of rho_base
 figure;
-plot(nl(:,1),(nl(:,2)-nl(:,3))./nl(:,3),'o-');hold on;
 plot(wl(:,1),(wl(:,2)-wl(:,3))./wl(:,3),'s--');hold on;
+plot(nl(:,1),(nl(:,2)-nl(:,3))./nl(:,3),'o-');hold on;
+
 plot([n_min,n_max],[0,0],'k:');
 xlabel('$n_{train}$','Interpreter','latex')
 ylabel('Prediction error','Interpreter','latex')
@@ -25,8 +26,9 @@ set(gca,'FontSize',fontsize,'Fontname', 'Times New Roman')
 figure;
 % e0=1/func_outputs(reshape(ones(5,5)*0.5,1,5,5),1,1,0.25,'temp.txt');
 e0=1.2086492;
-plot(nl(:,1),nl(:,3)/e0,'o-');hold on;
 plot(wl(:,1),wl(:,3)/e0,'s--');hold on;
+plot(nl(:,1),nl(:,3)/e0,'o-');hold on;
+
 xlabel('$n_{train}$','Interpreter','latex')
 %xticks([100 500 1000 2000])
 ylabel('$\tilde{E}$','Interpreter','latex')

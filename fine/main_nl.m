@@ -1,3 +1,4 @@
+% Comsol server required
 %% some parameters
 delta=0.1; %element size
 ratio=0.5; %ratio of material
@@ -10,13 +11,15 @@ mask_y=ones(1,ny);mask_y(1)=0.5;mask_y(end)=0.5;
 mask=mask_x*mask_y*delta^2;
 folder='data_nl';
 mkdir(folder);
-ns=1000:1000:20000;
+% ns=1000:1000:20000;
+ns=[20000:10000:100000, 120000:20000:200000];
 results=zeros(length(ns),3);
 results(:,1)=ns';
 seed_opt=123;
 seed_train=3;
 seed_gen=3;
-trainfile=['./',folder,'/','training_dataset_20k.mat'];
+% trainfile=['./',folder,'/','training_dataset_20k.mat'];
+trainfile=['./',folder,'/','training_dataset_200k.mat'];
 
 %% generate inputs and outputs data
 inputs=func_inputs_gen(max(ns),ratio,mask,seed_gen,[],0);

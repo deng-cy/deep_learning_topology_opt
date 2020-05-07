@@ -1,7 +1,7 @@
-# Code for _Self-Directed Online Learning for Topology Optimization_
+# Code for _Self-Directed Online Machine Learning for Topology Optimization_
 This repository contains code of the following paper:
 
-Changyu Deng, Can Qin, and Wei Lu. "Self-Directed Online Learning for Topology Optimization." arXiv preprint arXiv:2002.01927 (2020) [Download](https://arxiv.org/pdf/2002.01927.pdf) 
+Changyu Deng, Can Qin, and Wei Lu. "Self-Directed  Online Machine Learning for Topology Optimization." arXiv preprint arXiv:2002.01927 (2020) [Download](https://arxiv.org/pdf/2002.01927.pdf) 
 
 ## Contact
 Changyu Deng (dengcy@umich.edu), Can Qin (qin.ca@husky.neu.edu), Wei Lu (weilu@umich.edu)
@@ -51,10 +51,6 @@ Data are not uploaded on Github. Please download from [Google Drive](https://dri
 
 ## Reproducibility
 Please note that the reproducibility is not guranteed due to PyTorch platform (see its [documentation](https://pytorch.org/docs/stable/notes/randomness.html#reproducibility)).
-
-## Change log
-
-2020/04/20: Changed paper title from "Deep-Learning-Enabled Simulated Annealing for Topology Optimization".
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)

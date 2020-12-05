@@ -1,10 +1,12 @@
 # Code for _Self-Directed Online Machine Learning for Topology Optimization_
 This repository contains code of the following paper:
 
-Changyu Deng, Can Qin, and Wei Lu. "Self-Directed  Online Machine Learning for Topology Optimization." arXiv preprint arXiv:2002.01927 (2020) [Download](https://arxiv.org/pdf/2002.01927.pdf) 
+Changyu Deng, Yizhou Wang, Can Qin, and Wei Lu. "Self-Directed  Online Machine Learning for Topology Optimization." arXiv preprint arXiv:2002.01927 (2020) [Download](https://arxiv.org/pdf/2002.01927.pdf) 
+
+We are still working on the manuscript. More code and results will be uploaded soon. 
 
 ## Contact
-Changyu Deng (dengcy@umich.edu), Can Qin (qin.ca@husky.neu.edu), Wei Lu (weilu@umich.edu)
+Open an issue for this repository or send emails to dengcy@umich.edu
 
 ## Software environment
 * COMSOL Multiphysics 5.4

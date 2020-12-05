@@ -2,14 +2,14 @@ function out = model
 %
 % force.m
 %
-% Model exported on Feb 21 2020, 22:24 by COMSOL 5.4.0.225.
+% Model exported on Dec 5 2020, 12:03 by COMSOL 5.4.0.225.
 
 import com.comsol.model.*
 import com.comsol.model.util.*
 
 model = ModelUtil.create('Model');
 
-model.modelPath('C:\Users\dcy60\Google Drive\Research\MLOPT\code_data\fine(fig3)');
+model.modelPath('C:\Users\dcy60\Google Drive\Research\MLOPT\code_data\fine');
 
 model.label('force.mph');
 
@@ -34,7 +34,6 @@ model.result.table.create('tbl4', 'Table');
 
 model.component('comp1').func.create('int1', 'Interpolation');
 model.component('comp1').func('int1').set('source', 'file');
-model.component('comp1').func('int1').set('filename', 'C:\Users\dcy\OneDrive\Research\MLOPT\force60.txt');
 model.component('comp1').func('int1').set('struct', 'grid');
 model.component('comp1').func('int1').set('defvars', true);
 model.component('comp1').func('int1').set('frame', 'geometry');
@@ -79,10 +78,10 @@ model.result.table('tbl2').label('input');
 model.result.table('tbl3').comments('Surface Integration 1 (solid.Ws)');
 model.result.table('tbl4').label('Objective Probe Table 4');
 
-model.component('comp1').view('view1').axis.set('xmin', -1.5040212869644165);
-model.component('comp1').view('view1').axis.set('xmax', 3.0953369140625);
-model.component('comp1').view('view1').axis.set('ymin', -0.8570711612701416);
-model.component('comp1').view('view1').axis.set('ymax', 1.6935834884643555);
+model.component('comp1').view('view1').axis.set('xmin', -1.4247846603393555);
+model.component('comp1').view('view1').axis.set('xmax', 2.984947919845581);
+model.component('comp1').view('view1').axis.set('ymin', -0.5035969018936157);
+model.component('comp1').view('view1').axis.set('ymax', 1.4075349569320679);
 model.view('view2').axis.set('xmin', -0.360154926776886);
 model.view('view2').axis.set('xmax', 5.8532328605651855);
 model.view('view2').axis.set('ymin', -1.4008510112762451);

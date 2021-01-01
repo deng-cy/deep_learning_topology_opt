@@ -1,4 +1,4 @@
-# Compliance minimization problem with 5x5 mesh
+# Compliance minimization problem with 5x5 variables
 
 
 ## Software environment

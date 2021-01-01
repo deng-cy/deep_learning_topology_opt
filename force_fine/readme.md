@@ -1,4 +1,4 @@
-# Compliance minimization problem with 11x11 mesh
+# Compliance minimization problem with 11x11 variables
 
 
 ## Software environment

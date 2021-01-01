@@ -13,13 +13,11 @@ colors=func_linspecer(8);
 %% energy (objective)
 fontsize=30;
 fig=figure('Position',[0,0,1000,500]);
-% figure;
 plot([0,2500],[p0./output_gradient,p0./output_gradient],'--','Color',colors(8,:),'LineWidth',3);hold on;
 plot(func_best_min(g),'-','Color',colors(6,:),'LineWidth',3);hold on;
 plot(func_best_min(r),'-','Color',colors(7,:),'LineWidth',3);hold on;
 
 xl=xlabel('$n_{train}$','Interpreter','latex');
-% xticks([100 500 1000 2000])
 yl=ylabel('$\tilde{P}$','Interpreter','latex','Rotation',0);
 [y,x]=min(g);
 scatter(x,y,300,colors(6,:),'x','LineWidth',2); hold on;

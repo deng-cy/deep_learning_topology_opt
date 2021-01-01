@@ -20,8 +20,9 @@ func_outputs(input,a,b,delta,filename,1)
 
 %% figure 3e
 figure;
-e0=1/func_outputs(reshape(ones(11,11)*0.5,1,11,11),1,1,0.1,'temp.txt');
-load('./data_wl/1000ntrain_train_step12.mat')
+% e0=1/func_outputs(reshape(ones(11,11)*0.5,1,11,11),1,1,0.1,'temp.txt');
+e0=1.2086492;
+load('./data_solo/1000ntrain_train_step12.mat')
 outputs=outputs([1,1001:end]);
 inputs=inputs([1,1001:end],:,:);
 [val, idx]=max(outputs);
@@ -31,11 +32,12 @@ E_tilt=1/val/e0
 
 %% figure 3f
 figure;
-e0=1/func_outputs(reshape(ones(11,11)*0.5,1,11,11),1,1,0.1,'temp.txt');
-load('./data_wl/1000ntrain_train_step79.mat');
+% e0=1/func_outputs(reshape(ones(11,11)*0.5,1,11,11),1,1,0.1,'temp.txt');
+e0=1.2086492;
+load('./data_solo/1000ntrain_train_step78.mat');
 outputs=outputs([1,1001:end]);
 inputs=inputs([1,1001:end],:,:);
 [val, idx]=max(outputs);
 input=inputs(idx,:,:);
-func_outputs(input,a,b,delta,filename,1);
+func_outputs(input,a,b,delta,filename,2);
 E_tilt=1/val/e0

@@ -10,11 +10,11 @@ ny=b/delta+1;
 mask_x=ones(nx,1);mask_x(1)=0.5;mask_x(end)=0.5;
 mask_y=ones(1,ny);mask_y(1)=0.5;mask_y(end)=0.5;
 mask=mask_x*mask_y*delta^2;
-folder='data_wl';
+folder='data_ss';
 mkdir(folder);
 n=100;
 base=[];
-results=zeros(iter,3);
+results=zeros(iter,2);
 results(:,1)=(n:n:n*iter)';
 seed_train=3;
 seed_opt=123;
@@ -34,11 +34,10 @@ for i=1:iter
         outputs=[outputs;mydata.outputs];
     end    
     save(trainfile,'inputs','outputs','mask');
-    cmdstr=['C:/Users/dcy/Anaconda3/Scripts/activate & C:/Users/dcy/Anaconda3/python.exe -c',' "import mlopt; mlopt.func(',...
-        'None',',''',optfile,''',',num2str(seed_train),',',num2str(seed_opt),',trainfile=''',trainfile,''') "'];
-    [status,commandOut]=system(cmdstr)
-    [results(i,2),results(i,3),base]= func_test(a,b,delta,optfile);
-    results(i,3)
+% 
+    [val,idx]=max(outputs);
+    results(i,2)=val;
+    base=inputs(idx,:,:);
     
 end
 save(['./',folder,'/','results'],'results');

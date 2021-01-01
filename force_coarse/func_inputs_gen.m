@@ -1,12 +1,12 @@
 function inputs = func_inputs_gen(iter,ratio,mask,seed_gen,base,p)
 
 rng(seed_gen);
-base_exist=~isempty(base);
-if base_exist
+base_empty=isempty(base);
+if base_empty
+    i=1;
+else
     inputs(1,:,:)=base;
     i=2;
-else
-    i=1;
 end
 
 
@@ -19,7 +19,7 @@ while i<=iter
 %     z1=z>=ratio;
 %     z(z<ratio)=1;
 %     z(z1)=0;
-if ~base_exist
+if base_empty
 y=rand(nx,ny);
 temp=sum(y.*mask,'all');
 z=y/temp*ratio;
@@ -49,6 +49,8 @@ else
     end
     y=rand(nx,ny);
     z(mask_change==1)=y(mask_change==1);
+    
+    %enforce volume constraint
     temp=sum(z.*mask,'all');
     z=z/temp*ratio;
     surplus=sum((z(z>1)-1).*mask(z>1),'all');

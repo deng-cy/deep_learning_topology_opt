@@ -19,8 +19,10 @@ end
 func_outputs(input,a,b,delta,filename,1)
 
 %% figure 2e
-e0=1/func_outputs(reshape(ones(5,5)*0.5,1,5,5),1,1,0.25,'temp.txt');
-load('./data_wl/100ntrain_train_step7.mat')
+figure;
+% e0=1/func_outputs(reshape(ones(5,5)*0.5,1,5,5),1,1,0.25,'temp.txt');
+e0=1.006918941964665;
+load('./data_solo/100ntrain_train_step7.mat')
 outputs=outputs([1,101:end]);
 inputs=inputs([1,101:end],:,:);
 [val, idx]=max(outputs);
@@ -29,11 +31,13 @@ func_outputs(input,a,b,delta,filename,1)
 E_tilt=1/val/e0
 
 %% figure 2f
-e0=1/func_outputs(reshape(ones(5,5)*0.5,1,5,5),1,1,0.25,'temp.txt');
-load('./data_wl/100ntrain_train_step61.mat');
+figure;
+% e0=1/func_outputs(reshape(ones(5,5)*0.5,1,5,5),1,1,0.25,'temp.txt');
+e0=1.006918941964665;
+load('./data_solo/100ntrain_train_step58.mat');
 outputs=outputs([1,101:end]);
 inputs=inputs([1,101:end],:,:);
 [val, idx]=max(outputs);
-func_outputs(input,a,b,delta,filename,1)
-
+input=inputs(idx,:,:);
+func_outputs(input,a,b,delta,filename,2)
 E_tilt=1/val/e0

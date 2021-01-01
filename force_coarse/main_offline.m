@@ -6,7 +6,7 @@ a=1;
 b=1;
 nx=a/delta+1;
 ny=b/delta+1;
-folder='data_nl';
+folder='data_offline';
 mkdir(folder);
 mask_x=ones(nx,1);mask_x(1)=0.5;mask_x(end)=0.5;
 mask_y=ones(1,ny);mask_y(1)=0.5;mask_y(end)=0.5;

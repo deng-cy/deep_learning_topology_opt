@@ -1,4 +1,4 @@
-# Compliance minimization problem with 20x8 variables
+# Fluid-structure optimization problem with 20x8 variables
 
 
 ## Software environment

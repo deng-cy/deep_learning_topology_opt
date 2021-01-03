@@ -9,7 +9,7 @@ We are still working on the manuscript. More code and results will be uploaded s
 Open an issue for this repository or send emails to dengcy@umich.edu. I will try to respond within a few hours.
 
 ## Introduction
-There are 4 examples in the paper, two compliance minimization problems (coarse mesh in [force_coarse](./force_coarse), fine mesh in [force_fine](./force_coarse)) and two fluid-structure optimization problems (coarse mesh in [fluid_coarse](./fluid_coarse), fine mesh in [fluid_fine](./fluid_fine)). Their code is in their individual folders; they do not share files. Please refer to the `readme.md` file in their own folder for more specific info. 
+There are 4 examples in the paper, two compliance minimization problems ([coarse mesh](./force_coarse)/[fine mesh](./force_coarse)) and two fluid-structure optimization problems ([coarse mesh](./fluid_coarse)/[fine mesh](./fluid_fine)). Their code is in their individual folders; they do not share files. Please refer to the `readme.md` file in their own folder for more specific info. 
 
 ## Software environment
 All experiments are run on Windows 10, with following softwares: 

@@ -5,7 +5,6 @@
 * COMSOL Multiphysics 5.4
 * Matlab 2019b
 * Python 3.7
-  * SciPy 1.2.0
   * PyTorch 1.2.0
 
 ## Code

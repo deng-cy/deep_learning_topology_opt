@@ -8,6 +8,9 @@
   * SciPy 1.2.0
   * PyTorch 1.2.0
   * Optuna 2.0.0
+
+  
+For SciPy: please be aware that there was an [issue](https://github.com/scipy/scipy/issues/10892) in simulated annealing function `dual_annealing ` when I ran the code using this package. It has been fixed in 1.6.0. Difference is expected in the behavior, but should not be too much. You can tune the paramters of the function to reduce the difference, although not necessary.
 ## Code
 * <strong>force.m</strong>: MATLAB script to generate a _COMSOL_ file, used to calculate elastic energy based on given density distribution
 * <strong>force_optimized.m</strong>: MATLAB script to generate a _COMSOL_ file, used to calculate optimal configuration based on MMA

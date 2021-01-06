@@ -19,7 +19,7 @@ for xi=1:nx
     end
 end
 
-ths=0.7:0.01:0.9;
+ths=0.5:0.01:0.9;
 n_ths=numel(ths);
 inputs=zeros(n_ths,nx,ny);
 for i=1:n_ths

@@ -2,7 +2,7 @@ function out = model
 %
 % fluid_optimized.m
 %
-% Model exported on Jan 1 2021, 18:08 by COMSOL 5.4.0.225.
+% Model exported on Jan 5 2021, 14:27 by COMSOL 5.4.0.225.
 
 import com.comsol.model.*
 import com.comsol.model.util.*
@@ -2598,5 +2598,48 @@ model.result('pg5').run;
 model.result('pg5').run;
 
 model.label('fluid_optimized.mph');
+
+model.study('std2').feature('opt').set('nsolvemax', 150);
+
+model.sol('sol2').study('std2');
+
+model.study('std2').feature('stat').set('notlistsolnum', 1);
+model.study('std2').feature('stat').set('notsolnum', '1');
+model.study('std2').feature('stat').set('listsolnum', 1);
+model.study('std2').feature('stat').set('solnum', '1');
+
+model.sol('sol2').feature.remove('o1');
+model.sol('sol2').feature.remove('v1');
+model.sol('sol2').feature.remove('st1');
+model.sol('sol2').create('st1', 'StudyStep');
+model.sol('sol2').feature('st1').set('study', 'std2');
+model.sol('sol2').feature('st1').set('studystep', 'stat');
+model.sol('sol2').create('v1', 'Variables');
+model.sol('sol2').feature('v1').set('control', 'stat');
+model.sol('sol2').create('o1', 'Optimization');
+model.sol('sol2').feature('o1').set('control', 'opt');
+model.sol('sol2').feature('o1').create('s1', 'StationaryAttrib');
+model.sol('sol2').feature('o1').feature('s1').set('control', 'stat');
+model.sol('sol2').feature('o1').feature('s1').feature('aDef').set('cachepattern', true);
+model.sol('sol2').feature('o1').feature('s1').create('fc1', 'FullyCoupled');
+model.sol('sol2').feature('o1').feature('s1').feature('fc1').set('initstep', 0.01);
+model.sol('sol2').feature('o1').feature('s1').feature('fc1').set('minstep', 1.0E-6);
+model.sol('sol2').feature('o1').feature('s1').feature('fc1').set('dtech', 'auto');
+model.sol('sol2').feature('o1').feature('s1').feature('fc1').set('maxiter', 100);
+model.sol('sol2').feature('o1').feature('s1').create('d1', 'Direct');
+model.sol('sol2').feature('o1').feature('s1').feature('d1').set('linsolver', 'pardiso');
+model.sol('sol2').feature('o1').feature('s1').feature('d1').set('pivotperturb', 1.0E-13);
+model.sol('sol2').feature('o1').feature('s1').feature('fc1').set('linsolver', 'd1');
+model.sol('sol2').feature('o1').feature('s1').feature('fc1').set('initstep', 0.01);
+model.sol('sol2').feature('o1').feature('s1').feature('fc1').set('minstep', 1.0E-6);
+model.sol('sol2').feature('o1').feature('s1').feature('fc1').set('dtech', 'auto');
+model.sol('sol2').feature('o1').feature('s1').feature('fc1').set('maxiter', 100);
+model.sol('sol2').feature('o1').feature('s1').feature.remove('fcDef');
+model.sol('sol2').attach('std2');
+model.sol('sol2').runAll;
+
+model.result('pg3').run;
+
+model.study('std2').feature('opt').set('probewindow', '');
 
 out = model;

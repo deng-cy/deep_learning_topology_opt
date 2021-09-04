@@ -15,15 +15,15 @@ For SciPy: please be aware that there was an [issue](https://github.com/scipy/sc
 * <strong>force_optimized.m</strong>: MATLAB script to generate a COMSOL file, used to calculate optimal configuration based on MMA
 
 * <strong>func_*.m</strong>: MATLAB function scripts
-	* <strong>func_inputs_gen.m</strong>: a function to generate input data, i.e., $\rho$ in paper
-	* <strong>func_outputs.m</strong>: a function to calculate output, i.e., reciprocal of energy, 1/E
-	* <strong>func_test.m</strong>: a function to evaluate the optimized solution $\hat{\rho}$ from DNN
-	* <strong>func_python_api.m</strong>: an API to connect Python with MATLAB
-	* Others are used to plot
+  * <strong>func_inputs_gen.m</strong>: a function to generate input data, i.e., $\rho$ in paper
+  * <strong>func_outputs.m</strong>: a function to calculate output, i.e., reciprocal of energy, 1/E
+  * <strong>func_test.m</strong>: a function to evaluate the optimized solution $\hat{\rho}$ from DNN
+  * <strong>func_python_api.m</strong>: an API to connect Python with MATLAB
+  * Others are used to plot
 
-* <strong>main_*.m</strong>: MATLAB code to generate data * <strong>main_solo.m</strong>: code to implement our proposed SOLO algorithm, and generate
-  data in subfolder "data_solo"
-	* <strong>main_offline.m</strong>: code to implement "Offline" algorithm, and generate data in subfolder "data_offline"
+* <strong>main_*.m</strong>: MATLAB code to generate data
+  * <strong>main_solo.m</strong>: code to implement our proposed SOLO algorithm, and generate data in subfolder "data_solo"
+  * <strong>main_offline.m</strong>: code to implement "Offline" algorithm, and generate data in subfolder "data_offline"
 
 
 * <strong>plot_*.m</strong>: MATLAB code to plot the data

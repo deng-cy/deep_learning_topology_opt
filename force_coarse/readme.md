@@ -16,24 +16,24 @@ For SciPy: please be aware that there was an [issue](https://github.com/scipy/sc
 * <strong>force_optimized.m</strong>: MATLAB script to generate a COMSOL file, used to calculate optimal configuration based on MMA
 
 * <strong>func_*.m</strong>: MATLAB function scripts
-	* <strong>func_inputs_gen.m</strong>: a function to generate input data, i.e., $\rho$ in paper
-	* <strong>func_outputs.m</strong>: a function to calculate output, i.e., reciprocal of energy, 1/E
-	* <strong>func_test.m</strong>: a function to evaluate the optimized solution $\hat{\rho}$ from DNN
-	* <strong>func_python_api.m</strong>: an API to connect Python with MATLAB
-	* Others are used to plot
+  * <strong>func_inputs_gen.m</strong>: a function to generate input data, i.e., $\rho$ in paper
+  * <strong>func_outputs.m</strong>: a function to calculate output, i.e., reciprocal of energy, 1/E
+  * <strong>func_test.m</strong>: a function to evaluate the optimized solution $\hat{\rho}$ from DNN
+  * <strong>func_python_api.m</strong>: an API to connect Python with MATLAB
+  * Others are used to plot
 
-* <strong>main_*.m</strong>: MATLAB code to generate data * <strong>main_solo.m</strong>: code to implement our proposed SOLO algorithm, and generate
-  data in subfolder "data_solo"
-	* <strong>main_offline.m</strong>: code to implement "Offline" algorithm, and generate data in subfolder "data_offline"
-	* <strong>main_bo.m</strong>: code to implement Bayesian Optimization (BO) algorithm, and generate data in "data_bo.mat"
-    *  <strong>main_ss.m</strong>: code to implement Stochastic Search (SS) algorithm, and generate data in "data_ss.mat"
+* <strong>main_*.m</strong>: MATLAB code to generate data
+  * <strong>main_solo.m</strong>: code to implement our proposed SOLO algorithm, and generate data in subfolder "data_solo"
+  * <strong>main_offline.m</strong>: code to implement "Offline" algorithm, and generate data in subfolder "data_offline"
+  * <strong>main_bo.m</strong>: code to implement Bayesian Optimization (BO) algorithm, and generate data in "data_bo.mat"
+  * <strong>main_ss.m</strong>: code to implement Stochastic Search (SS) algorithm, and generate data in "data_ss.mat"
 
 * <strong>plot_*.m</strong>: MATLAB code to plot the data
-	* <strong>plot_b_c.m</strong>: plot figures b and c
-	* <strong>plot_d_e_f.m</strong>: plot figures d, e, and f
-	* <strong>plot_s1.m</strong>: plot Supplementary Figure 1
-	* <strong>plot_s2.m</strong>: plot Supplementary Figure 2
-  
+  * <strong>plot_b_c.m</strong>: plot figures b and c
+  * <strong>plot_d_e_f.m</strong>: plot figures d, e, and f
+  * <strong>plot_s1.m</strong>: plot Supplementary Figure 1
+  * <strong>plot_s2.m</strong>: plot Supplementary Figure 2
+
 * <strong>main_cmaes.py</strong>: python code to implement Covariance Matrix Adaptation Evolution Strategy (CMA-ES), and generate "data_cmaes.mat"
 
 * <strong>main_gsa.py</strong>: python code to implement Generative Simulated Annealing (GSA) directly without using DNN, and generate "data_gsa.mat"

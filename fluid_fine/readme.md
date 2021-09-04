@@ -13,19 +13,19 @@
   method
 
 * <strong>func_*.m</strong>: MATLAB function scripts
-	* <strong>func_inputs_gen.m</strong>: a function to generate input data, i.e., $\rho$ in paper
-	* <strong>func_outputs_nowrite.m</strong>: a function to calculate output, i.e., reciprocal of pressure, 1/P
-	* <strong>func_test.m</strong>: a function to evaluate the optimized solution $\hat{\rho}$ from DNN
-	* Others are used to plot
+  * <strong>func_inputs_gen.m</strong>: a function to generate input data, i.e., $\rho$ in paper
+  * <strong>func_outputs_nowrite.m</strong>: a function to calculate output, i.e., reciprocal of pressure, 1/P
+  * <strong>func_test.m</strong>: a function to evaluate the optimized solution $\hat{\rho}$ from DNN
+  * Others are used to plot
 
-* <strong>main_*.m</strong>: MATLAB code to generate data * <strong>main_greedy.m</strong>: code to implement our proposed SOLO-G algorithm, and
-  generate data in subfolder "data_g"
-	* <strong>main_regular.m</strong>: code to implement our proposed SOLO-R algorithm, and generate data in subfolder "data_r"
+* <strong>main_*.m</strong>: MATLAB code to generate data
+  * <strong>main_greedy.m</strong>: code to implement our proposed SOLO-G algorithm, and generate data in subfolder "data_g"
+  * <strong>main_regular.m</strong>: code to implement our proposed SOLO-R algorithm, and generate data in subfolder "data_r"
 
 * <strong>plot_*.m</strong>: MATLAB code to plot the data
-	* <strong>plot_c.m</strong>: plot figure c
-	* <strong>plot_b_d.m</strong>: plot figures b, and d
-	* <strong>plot_s\[5,8,9\].m</strong>: plot Supplementary Figure \[5,8,9\]
+  * <strong>plot_c.m</strong>: plot figure c
+  * <strong>plot_b_d.m</strong>: plot figures b, and d
+  * <strong>plot_s\[5,8,9\].m</strong>: plot Supplementary Figure \[5,8,9\]
 
 
 * <strong>bba.py</strong>: python code to implement Binary Bat Algorithm (BBA)

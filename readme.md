@@ -37,4 +37,6 @@ its [documentation](https://pytorch.org/docs/stable/notes/randomness.html#reprod
 
 ## Change log
 
+2021-09-04 Uploaded heat examples
+
 2021-09-03 Fixed some issues in existing examples to match the paper. New examples will be uploaded soon.  

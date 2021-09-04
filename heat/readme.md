@@ -34,6 +34,7 @@
 
 * <strong>mlopt.py</strong>: (abbreviation of Machine Learning and OPTimization) python code to train a Deep Learning Network (DNN) and obtain the
   optimized solution based on the DNN by Bat Algorithm (BA)
+* <strong>ba.py</strong>: python function for Bat Algorithm (BA)
 
 ## Data
 

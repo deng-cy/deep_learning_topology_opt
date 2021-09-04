@@ -7,7 +7,7 @@ b=0.8;
 delta=0.05;
 
 base=[];
-iter=400;
+iter=200;
 results=zeros(iter,3);
 n=10;
 n_0=641;
@@ -18,7 +18,7 @@ nx=a/delta;
 ny=b/delta;
 
 %% loops
-for i=2:iter
+for i=1:iter
     testfile=['./',folder,'/',num2str(n),'ntrain_test_step',num2str(i),'.mat'];
     optfile=['./',folder,'/',num2str(n),'ntrain_opt_step',num2str(i),'.mat'];
     trainfile=['./',folder,'/',num2str(n),'ntrain_train_step',num2str(i),'.mat'];

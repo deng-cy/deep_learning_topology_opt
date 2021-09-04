@@ -16,21 +16,22 @@
 	* <strong>func_outputs_nowrite.m</strong>: a function to calculate output, i.e., reciprocal of pressure, 1/P
 	* <strong>func_test.m</strong>: a function to evaluate the optimized solution $\hat{\rho}$ from DNN
 	* Others are used to plot
-  
-* <strong>main_*.m</strong>: MATLAB code to generate data
-  	* <strong>main_greedy.m</strong>: code to implement our proposed SOLO-G algorithm, and generate data in subfolder "data_g"
+
+* <strong>main_*.m</strong>: MATLAB code to generate data * <strong>main_greedy.m</strong>: code to implement our proposed SOLO-G algorithm, and
+  generate data in subfolder "data_g"
 	* <strong>main_regular.m</strong>: code to implement our proposed SOLO-R algorithm, and generate data in subfolder "data_r"
 
 * <strong>plot_*.m</strong>: MATLAB code to plot the data
 	* <strong>plot_c.m</strong>: plot figure c
 	* <strong>plot_b_d_e.m</strong>: plot figures b, d, and e
-	* <strong>plot_s4.m</strong>: plot Supplementary Figure 4
-  
+	* <strong>plot_s\[4-6\].m</strong>: plot Supplementary Figure \[4-6\]
+
 * <strong>bba.py</strong>: python code to implement Binary Bat Algorithm (BBA)
-  
+
 * <strong>utils.py</strong>: python utility code to check whether a design is feasible (fluid is not blocked by solid)
 
-* <strong>mlopt.py</strong>: (abbreviation of Machine Learning and OPTimization) python code to train a Deep Learning Network (DNN) and obtain the optimized solution based on the DNN by BBA
+* <strong>mlopt.py</strong>: (abbreviation of Machine Learning and OPTimization) python code to train a Deep Learning Network (DNN) and obtain the
+  optimized solution based on the DNN by BBA
 
 ## Data
 If you run the code, data will be generated and stored in subfolders:
@@ -43,9 +44,16 @@ You will also get a file:
 Data is not uploaded to Github. Please download from [Google Drive](https://drive.google.com/drive/folders/1f6Xrd9e-RAUsh9vqIqUXbEw8F1_2Qg_5?usp=sharing) or email us.
 
 ## How to run
-1. Connect MATLAB with _COMSOL_ server
-2. Run __fluid.m__ by _COMSOL_ to generate __fluid.mph__
+
+1. Connect MATLAB with COMSOL server
+2. Run __fluid.m__ by COMSOL to generate __fluid.mph__
 3. Run __main_greedy.m__ and __main_regular.m__
-4. [optional] Run __plot_b_d_e.m__ and __plot_s4.m__
+4. [optional] Run __plot_b_d_e.m__ and __plot_s\[4-6\].m__
 5. Run __fluid_optimized.m__ by _COMSOL_ to generate __fluid_optimized.mph__
 6. [optional] Run __plot_c.m__
+
+As long as a __*.m__ file says `Comsol server required` in the comment at the top, you need to connect the MATLAB with a COMSOL server to run the
+file. I recommend adding parameters `-autosave off -np 1 -multi on` (`-autosave off` turns off autosave, `-np 1` sets number of CPU cores of each
+server to 1, and
+`-multi on` keeps the server after disconnecting _COMSOL_ from MATLAB). You could add to target if you use Shortcut to start the server or to the
+command if using command line to start.

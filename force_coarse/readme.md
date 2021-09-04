@@ -54,11 +54,19 @@ You will also get files:
 Data is not uploaded to Github. Please download from [Google Drive](https://drive.google.com/drive/folders/1f6Xrd9e-RAUsh9vqIqUXbEw8F1_2Qg_5?usp=sharing) or email us.
 
 ## How to run
-1. Connect MATLAB with _COMSOL_ server
-2. Run __force.m__ by _COMSOL_ to generate __force.mph__
+1. Connect MATLAB with COMSOL server
+2. Run __force.m__ by COMSOL to generate __force.mph__
 3. Run __main_offline.m__, __main_SOLO.m__,  __main_bo.m__, and __main_ss.m__
-4. Prepare with connet Python to MATLAB (which has connected to _COMSOL_ server). You need to install MATLAB API for Python (see [doc](https://www.mathworks.com/help/matlab/matlab_external/install-the-matlab-engine-for-python.html)) and then run `matlab.engine.shareEngine` on MATLAB. Other ways are also feasible, as long as Python can be connected to MATLAB. 
-5. Run <strong>main_cmaes.py</strong> and <strong>main_gsa.py</strong> 
+4. Prepare with connet Python to MATLAB (which has connected to _COMSOL_ server). You need to install MATLAB API for Python (
+   see [doc](https://www.mathworks.com/help/matlab/matlab_external/install-the-matlab-engine-for-python.html)) and then
+   run `matlab.engine.shareEngine` on MATLAB. Other ways are also feasible, as long as Python can be connected to MATLAB.
+5. Run <strong>main_cmaes.py</strong> and <strong>main_gsa.py</strong>
 6. [optional] Run __plot_b_c.m__ and __plot_s1.m__ and __plot_s2.m__
-7. Run __force_optimized.m__ by _COMSOL_ to generate __force_optimized.mph__
+7. Run __force_optimized.m__ by COMSOL to generate __force_optimized.mph__
 8. [optional] Run __plot_d_e_f.m__
+
+As long as a __*.m__ file says `Comsol server required` in the comment at the top, you need to connect the MATLAB with a COMSOL server to run the
+file. I recommend adding parameters `-autosave off -np 1 -multi on` (`-autosave off` turns off autosave, `-np 1` sets number of CPU cores of each
+server to 1, and
+`-multi on` keeps the server after disconnecting _COMSOL_ from MATLAB). You could add to target if you use Shortcut to start the server or to the
+command if using command line to start.

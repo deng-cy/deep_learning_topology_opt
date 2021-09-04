@@ -6,18 +6,21 @@ import torch
 import tqdm
 
 
-def bba(func, x0=None, n=200, maxiter=2000, topk=100, fmin=0, fmax=2, loud_A=0.25, r0=0.4, min=True, alpha=0.999, gamma=10., progress=False):
+def bba(func, x0=None, n=200, maxiter=2000, topk=100, is_min=True, fmin=0, fmax=2, loud_A=0.25, r0=0.4, alpha=0.999, gamma=10., progress=False):
     """
     input:{ func: Evaluate_Function, type is nn.Module
+            x0: initial guess of the solution
             n: Number of population, default=20
-            m_i: Number of max iteration, default=300
-            minf: minimazation flag, default=0, 0=maximization, 1=minimazation
-            dim: Number of feature, default=None
-            prog: Do you want to use a progress bar?, default=False
-            fmin: frequency minimum to step
-            fmax: frequency maximum to step
-            loud_A: value of Loudness, default=0.25
-            r0: Pulse rate, default=0.4, Probability to relocate near the best position
+            maxiter: Number of max iteration, default=300
+            topk: the number of states to output (see output best_s_list)
+            is_min: minimizing (True) or maximizing (False) func
+            fmin: a hyperparamter, frequency minimum to step
+            fmax: a hyperparamter, frequency maximum to step
+            loud_A: a hyperparamter, value of Loudness, default=0.25
+            r0: a hyperparamter, pulse rate, Probability to relocate near the best position
+            alpha: a hyperparamter, decay rate of loud_A
+            gamma: a hyperparamter, decay rate of gamma
+            progress: whether to show progress par
             }
     output:{best_v: Best value, type torch.tensor(2.22)
             best_s: Best state, type torch.tensor([1.,0.,0.,1.,.....])
@@ -36,13 +39,11 @@ def bba(func, x0=None, n=200, maxiter=2000, topk=100, fmin=0, fmax=2, loud_A=0.2
     x = torch.cat([x, x0], dim=0)
 
     torch.set_grad_enabled(False)
-    fit = func(x) if min else -func(x)
+    fit = func(x) if is_min else -func(x)
     min_fit = fit.min()
     best_v = min_fit
     best_s = x[fit.argmin()].reshape((1, -1))
     best_list = []
-
-    T = 0.1
 
     if progress:
         m = tqdm.tqdm(range(maxiter))
@@ -67,7 +68,7 @@ def bba(func, x0=None, n=200, maxiter=2000, topk=100, fmin=0, fmax=2, loud_A=0.2
         accept = torch.rand(n, dim, device=device) > r
         x_new[accept] = best_s.expand(n, dim)[accept]
 
-        fit_new = func(x_new) if min else -func(x_new)
+        fit_new = func(x_new) if is_min else -func(x_new)
 
         # accept new solutions
         rand = torch.rand(n, device=device)
@@ -82,9 +83,8 @@ def bba(func, x0=None, n=200, maxiter=2000, topk=100, fmin=0, fmax=2, loud_A=0.2
             best_s = x[argmin_f].reshape((1, -1)).clone()
             best_v = min_fit.clone()
 
-        T *= 0.999
-        best_list.append(best_v)
+        best_list.append(best_v if is_min else - best_v)
 
     best_s_list = torch.unique(torch.cat((fit, x), dim=1), dim=0)[0:topk, :]
 
-    return best_v, best_s, best_s_list, best_list
+    return (best_v if is_min else - best_v), best_s, best_s_list, best_list

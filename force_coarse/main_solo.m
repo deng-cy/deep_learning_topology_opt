@@ -22,7 +22,6 @@ seed_opt=123;
 p=[0.1,0.1,0.2,0.2,0.2];
         
 for i=1:iter
-    i
     optfile=['./',folder,'/',num2str(n),'ntrain_opt_step',num2str(i),'.mat'];
     trainfile=['./',folder,'/',num2str(n),'ntrain_train_step',num2str(i),'.mat'];
     seed_gen=2+i;
@@ -34,6 +33,7 @@ for i=1:iter
         outputs=[outputs;mydata.outputs];
     end    
     save(trainfile,'inputs','outputs','mask');
+    % run python, CHANGE the following to your python executable directory
     cmdstr=['C:/Users/dcy/Anaconda3/Scripts/activate & C:/Users/dcy/Anaconda3/python.exe -c',' "import mlopt; mlopt.func(',...
         'None',',''',optfile,''',',num2str(seed_train),',',num2str(seed_opt),',trainfile=''',trainfile,''') "'];
     [status,commandOut]=system(cmdstr)

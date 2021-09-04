@@ -11,8 +11,8 @@ mask_y=ones(1,ny);mask_y(1)=0.5;mask_y(end)=0.5;
 mask=mask_x*mask_y*delta^2;
 folder='data_offline';
 mkdir(folder);
-ns=1000:1000:20000;
-% ns=[20000:10000:100000, 120000:20000:200000];
+ns=1000:1000:20000; % use this line if you run for the main result
+% ns=[20000:10000:100000, 120000:20000:200000]; % use this line if you run for Supplementary Fig 1
 results=zeros(length(ns),3);
 results(:,1)=ns';
 seed_opt=123;
@@ -29,6 +29,7 @@ save(trainfile,'inputs','outputs','mask');
 for i=1:length(ns)
     n=ns(i);
     optfile=['./',folder,'/',num2str(n),'ntrain_opt.mat'];
+    % run python, CHANGE the following to your python executable directory
     cmdstr=['C:/Users/dcy60/Anaconda3/Scripts/activate & C:/Users/dcy60/Anaconda3/python.exe -c',...
         ' "import mlopt; mlopt.func(',num2str(n),',''',optfile,''',',num2str(seed_train),',',num2str(seed_opt),',trainfile=''',trainfile,''') "'];
     [status,commandOut]=system(cmdstr)

@@ -24,8 +24,7 @@
 * <strong>plot_*.m</strong>: MATLAB code to plot the data
 	* <strong>plot_c.m</strong>: plot figure c
 	* <strong>plot_b_d.m</strong>: plot figures b, and d
-	* <strong>plot_s5.m</strong>: plot Supplementary Figure 5
-	* <strong>plot_s6.m</strong>: plot Supplementary Figure 6
+	* <strong>plot_s\[5,8,9\].m</strong>: plot Supplementary Figure \[5,8,9\]
 
   
 * <strong>bba.py</strong>: python code to implement Binary Bat Algorithm (BBA)
@@ -45,9 +44,16 @@ You will also get files:
 Data is not uploaded to Github. Please download from [Google Drive](https://drive.google.com/drive/folders/1f6Xrd9e-RAUsh9vqIqUXbEw8F1_2Qg_5?usp=sharing) or email us.
 
 ## How to run
-1. Connect MATLAB with _COMSOL_ server
-2. Run __fluid.m__ by _COMSOL_ to generate __fluid.mph__
+
+1. Connect MATLAB with COMSOL server
+2. Run __fluid.m__ by COMSOL to generate __fluid.mph__
 3. Run __main_greedy.m__
-4. [optional] Run __plot_b_d.m__, __plot_s5.m__, and  __plot_s6.m__
+4. [optional] Run __plot_b_d.m__ and __plot_s\[5,8,9\].m__
 5. Run __fluid_optimized.m__ by _COMSOL_ to generate __fluid_optimized.mph__
 6. [optional] Run __plot_c.m__
+
+As long as a __*.m__ file says `Comsol server required` in the comment at the top, you need to connect the MATLAB with a COMSOL server to run the
+file. I recommend adding parameters `-autosave off -np 1 -multi on` (`-autosave off` turns off autosave, `-np 1` sets number of CPU cores of each
+server to 1, and
+`-multi on` keeps the server after disconnecting _COMSOL_ from MATLAB). You could add to target if you use Shortcut to start the server or to the
+command if using command line to start.

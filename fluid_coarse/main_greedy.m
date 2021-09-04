@@ -34,6 +34,7 @@ for i=1:iter
         outputs=[mydata.outputs;outputs];
     end
     save(trainfile,'inputs','outputs');
+    % run python, CHANGE the following to your python executable directory 
     cmdstr=sprintf('C:/Users/dcy60/Anaconda3/Scripts/activate & C:/Users/dcy60/Anaconda3/python.exe -c "import mlopt; mlopt.func(None,''%s'',''%s'',%d,%d,topk=%d)" ', trainfile,optfile,seed_train,seed_opt,n);
     [status,commandOut]=system(cmdstr);
     [results(i,2),results(i,3),base]= func_test(optfile,nx,ny);

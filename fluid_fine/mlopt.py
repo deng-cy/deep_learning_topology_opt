@@ -107,7 +107,7 @@ class mlopt():
         time_start = time.time()
         x0 = torch.zeros((1, self.img_ele)).cuda() if torch.cuda.is_available() else torch.zeros((1, self.img_size1 * self.img_size2))
 
-        v, s, top_list, v_list = bba(self.net, x0=x0, n=n, maxiter=maxiter, min=is_min, topk=topk * topk_coeff, **kwargs)
+        v, s, top_list, v_list = bba(self.net, x0=x0, n=n, maxiter=maxiter, is_min=is_min, topk=topk * topk_coeff, **kwargs)
 
         top_np = top_list[:, 1:].cpu().numpy().reshape(-1, self.img_ele).astype(dtype='uint8')
         x = self.data['inputs'].reshape(-1, self.img_ele).astype(dtype='uint8')

@@ -11,8 +11,8 @@
   
 For SciPy: please be aware that there was an [issue](https://github.com/scipy/scipy/issues/10892) in simulated annealing function `dual_annealing ` when I ran the code using this package. It has been fixed in 1.6.0. Difference is expected in the behavior, but should not be too much. You can tune the paramters of the function to reduce the difference, although not necessary.
 ## Code
-* <strong>force.m</strong>: MATLAB script to generate a _COMSOL_ file, used to calculate elastic energy based on given density distribution
-* <strong>force_optimized.m</strong>: MATLAB script to generate a _COMSOL_ file, used to calculate optimal configuration based on MMA
+* <strong>force.m</strong>: MATLAB script to generate a COMSOL file, used to calculate elastic energy based on given density distribution
+* <strong>force_optimized.m</strong>: MATLAB script to generate a COMSOL file, used to calculate optimal configuration based on MMA
 
 * <strong>func_*.m</strong>: MATLAB function scripts
 	* <strong>func_inputs_gen.m</strong>: a function to generate input data, i.e., $\rho$ in paper
@@ -20,9 +20,9 @@ For SciPy: please be aware that there was an [issue](https://github.com/scipy/sc
 	* <strong>func_test.m</strong>: a function to evaluate the optimized solution $\hat{\rho}$ from DNN
 	* <strong>func_python_api.m</strong>: an API to connect Python with MATLAB
 	* Others are used to plot
-  
-* <strong>main_*.m</strong>: MATLAB code to generate data
-  	* <strong>main_solo.m</strong>: code to implement our proposed SOLO algorithm, and generate data in subfolder "data_solo"
+
+* <strong>main_*.m</strong>: MATLAB code to generate data * <strong>main_solo.m</strong>: code to implement our proposed SOLO algorithm, and generate
+  data in subfolder "data_solo"
 	* <strong>main_offline.m</strong>: code to implement "Offline" algorithm, and generate data in subfolder "data_offline"
 
 
@@ -60,5 +60,5 @@ Data is not uploaded to Github. Please download from [Google Drive](https://driv
 As long as a __*.m__ file says `Comsol server required` in the comment at the top, you need to connect the MATLAB with a COMSOL server to run the
 file. I recommend adding parameters `-autosave off -np 1 -multi on` (`-autosave off` turns off autosave, `-np 1` sets number of CPU cores of each
 server to 1, and
-`-multi on` keeps the server after disconnecting _COMSOL_ from MATLAB). You could add to target if you use Shortcut to start the server or to the
+`-multi on` keeps the server after disconnecting COMSOL from MATLAB). You could add to target if you use Shortcut to start the server or to the
 command if using command line to start.

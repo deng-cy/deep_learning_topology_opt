@@ -12,8 +12,8 @@
   
 For SciPy: please be aware that there was an [issue](https://github.com/scipy/scipy/issues/10892) in simulated annealing function `dual_annealing ` when I ran the code using this package. It has been fixed in 1.6.0. Difference is expected in the behavior, but should not be too much. You can tune the paramters of the function to reduce the difference, although not necessary.
 ## Code
-* <strong>force.m</strong>: MATLAB script to generate a _COMSOL_ file, used to calculate elastic energy based on given density distribution
-* <strong>force_optimized.m</strong>: MATLAB script to generate a _COMSOL_ file, used to calculate optimal configuration based on MMA
+* <strong>force.m</strong>: MATLAB script to generate a COMSOL file, used to calculate elastic energy based on given density distribution
+* <strong>force_optimized.m</strong>: MATLAB script to generate a COMSOL file, used to calculate optimal configuration based on MMA
 
 * <strong>func_*.m</strong>: MATLAB function scripts
 	* <strong>func_inputs_gen.m</strong>: a function to generate input data, i.e., $\rho$ in paper
@@ -21,9 +21,9 @@ For SciPy: please be aware that there was an [issue](https://github.com/scipy/sc
 	* <strong>func_test.m</strong>: a function to evaluate the optimized solution $\hat{\rho}$ from DNN
 	* <strong>func_python_api.m</strong>: an API to connect Python with MATLAB
 	* Others are used to plot
-  
-* <strong>main_*.m</strong>: MATLAB code to generate data
-  	* <strong>main_solo.m</strong>: code to implement our proposed SOLO algorithm, and generate data in subfolder "data_solo"
+
+* <strong>main_*.m</strong>: MATLAB code to generate data * <strong>main_solo.m</strong>: code to implement our proposed SOLO algorithm, and generate
+  data in subfolder "data_solo"
 	* <strong>main_offline.m</strong>: code to implement "Offline" algorithm, and generate data in subfolder "data_offline"
 	* <strong>main_bo.m</strong>: code to implement Bayesian Optimization (BO) algorithm, and generate data in "data_bo.mat"
     *  <strong>main_ss.m</strong>: code to implement Stochastic Search (SS) algorithm, and generate data in "data_ss.mat"
@@ -57,7 +57,7 @@ Data is not uploaded to Github. Please download from [Google Drive](https://driv
 1. Connect MATLAB with COMSOL server
 2. Run __force.m__ by COMSOL to generate __force.mph__
 3. Run __main_offline.m__, __main_SOLO.m__,  __main_bo.m__, and __main_ss.m__
-4. Prepare with connet Python to MATLAB (which has connected to _COMSOL_ server). You need to install MATLAB API for Python (
+4. Prepare with connet Python to MATLAB (which has connected to COMSOL server). You need to install MATLAB API for Python (
    see [doc](https://www.mathworks.com/help/matlab/matlab_external/install-the-matlab-engine-for-python.html)) and then
    run `matlab.engine.shareEngine` on MATLAB. Other ways are also feasible, as long as Python can be connected to MATLAB.
 5. Run <strong>main_cmaes.py</strong> and <strong>main_gsa.py</strong>
@@ -68,5 +68,5 @@ Data is not uploaded to Github. Please download from [Google Drive](https://driv
 As long as a __*.m__ file says `Comsol server required` in the comment at the top, you need to connect the MATLAB with a COMSOL server to run the
 file. I recommend adding parameters `-autosave off -np 1 -multi on` (`-autosave off` turns off autosave, `-np 1` sets number of CPU cores of each
 server to 1, and
-`-multi on` keeps the server after disconnecting _COMSOL_ from MATLAB). You could add to target if you use Shortcut to start the server or to the
+`-multi on` keeps the server after disconnecting COMSOL from MATLAB). You could add to target if you use Shortcut to start the server or to the
 command if using command line to start.

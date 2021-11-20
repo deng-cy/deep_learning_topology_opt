@@ -17,16 +17,27 @@ fluid-structure optimization problems ([coarse mesh](./fluid_coarse)/[fine mesh]
 and three truss optimization problems ([truss](./truss)). Their code is in their individual folders; they do not share files. Please refer to
 the `readme.md` file in their own folder for more specific info.
 
+If you are not sure which example to start from, I recommend
+
+* [Truss problem](./truss), if you only have Python installed and do not want to install Matlab or COMSOL. It only uses Python, yet requires a GPU (
+  you can easily change the code to run on CPU, but you will wait for too long).
+
+* [Compliance problem](./force_coarse), if you do not have GPU. It needs COMSOL and Matlab.
+
+* [Fluid problem](./fluid_coarse), if you have a GPU. It needs COMSOL and Matlab. It is faster than compliance problems when you have a GPU.
+
+I do NOT recommend starting from the [heat problem](./heat). It is complicated to understand and time-consuming to compute.
+
 ## Software environment
 
-Following softwares are used:
+Following softwares are used by __most__ examples:
 
 * COMSOL Multiphysics 5.4
 * Matlab 2019b
 * Python 3.7
   * PyTorch 1.2.0
 
-Higher versions should work fine. Lower versions may be compatible. Refer to the folders for more details. Some additional packages may be needed.
+Higher versions should work fine. Lower versions may be compatible. Refer to the folders for more details. Some different packages may be needed.
 
 ## Reproducibility
 

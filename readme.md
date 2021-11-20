@@ -39,6 +39,8 @@ its [documentation](https://pytorch.org/docs/stable/notes/randomness.html#reprod
 
 ## Change log
 
+2021-11-19 Added comments to fluid problems. Will add more comments in the coming weeks.
+
 2021-09-04 Uploaded all examples. More comments and instructions for the truss problems will be added later.
 
 2021-09-03 Fixed some issues in existing examples to match the paper. New examples will be uploaded soon.  

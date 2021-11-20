@@ -1,5 +1,6 @@
 function outputs = func_outputs_nowrite(inputs,nx,ny)
-import py.utils.isvalid
+
+import py.utils.isvalid % check whether the tunnel is blocked
 n_nodes=nx*ny;
 inputs=reshape(inputs,[],n_nodes);
 iter=size(inputs,1);
@@ -14,7 +15,7 @@ for i=1:n_nodes
 end
 
 for i=1:iter
-    if isvalid(reshape(inputs(i,:),nx,ny)')
+    if isvalid(reshape(inputs(i,:),nx,ny)') % if the tunnel is not blocked
         try
         model.component('comp1').geom('geom1').feature('dif1').selection('input2').set(['r2', geo(inputs(i,:)==1)]);
         model.component('comp1').geom('geom1').run;    

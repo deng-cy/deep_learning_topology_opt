@@ -54,10 +54,11 @@ from [Google Drive](https://drive.google.com/drive/folders/1f6Xrd9e-RAUsh9vqIqUX
 
 1. Connect MATLAB with COMSOL server
 2. Run __fluid.m__ by COMSOL to generate __fluid.mph__
-3. Run __main_greedy.m__ and __main_regular.m__
-4. [optional] Run __plot_b_d_e.m__ and __plot_s\[4-6\].m__
-5. Run __fluid_optimized.m__ by _COMSOL_ to generate __fluid_optimized.mph__
-6. [optional] Run __plot_c.m__
+3. Set up MATLAB such that it can call python scripts ([instructions](https://www.mathworks.com/help/matlab/call-python-libraries.html))
+4. Run __main_greedy.m__ and __main_regular.m__
+5. [optional] Run __plot_b_d_e.m__ and __plot_s\[4-6\].m__
+6. Run __fluid_optimized.m__ by _COMSOL_ to generate __fluid_optimized.mph__
+7. [optional] Run __plot_c.m__
 
 As long as a __*.m__ file says `Comsol server required` in the comment at the top, you need to connect the MATLAB with a COMSOL server to run the
 file. I recommend adding parameters `-autosave off -np 1 -multi on` (`-autosave off` turns off autosave, `-np 1` sets number of CPU cores of each

@@ -74,13 +74,13 @@ def unique(inputs, number=None):
     (2) two close float tensors are regarded as the same (so one of them will be eliminated), sometimes different
     Therefore, we use this function to select unique tensors and maintain occurrence.
     Args:
-        inputs: torch.Tensor, size = (dim1, dim2)
+        inputs: torch.Tensor, size = (dim1, n_bar)
             input vectors
         number: int
             number of unique tensors needed
 
     Returns:
-        out: torch.Tensor, size = (number, dim2)
+        out: torch.Tensor, size = (number, n_bar)
 
     """
     inputs_unique, idx = torch.unique(inputs, return_inverse=True, dim=0)

@@ -1,4 +1,4 @@
-# https://github.com/Sanbongawa/binary_swarm_intelligence
+# reference: https://github.com/Sanbongawa/binary_swarm_intelligence
 
 import math
 
@@ -6,17 +6,19 @@ import torch
 import tqdm
 
 
+@torch.no_grad()
 def bba(func, x0=None, n=200, maxiter=2000, topk=100, is_min=True, fmin=0, fmax=2, loud_A=0.25, r0=0.4, alpha=0.999, gamma=10., progress=False):
     """
+    Binary Bat Algorithm
     input:{ func: Evaluate_Function, type is nn.Module
             x0: initial guess of the solution
-            n: Number of population, default=20
-            maxiter: Number of max iteration, default=300
+            n: Number of population
+            maxiter: Number of max iteration
             topk: the number of states to output (see output best_s_list)
             is_min: minimizing (True) or maximizing (False) func
             fmin: a hyperparamter, frequency minimum to step
             fmax: a hyperparamter, frequency maximum to step
-            loud_A: a hyperparamter, value of Loudness, default=0.25
+            loud_A: a hyperparamter, value of Loudness
             r0: a hyperparamter, pulse rate, Probability to relocate near the best position
             alpha: a hyperparamter, decay rate of loud_A
             gamma: a hyperparamter, decay rate of gamma
@@ -29,21 +31,20 @@ def bba(func, x0=None, n=200, maxiter=2000, topk=100, is_min=True, fmin=0, fmax=
             }
     """
 
-    device = next(func.parameters()).device
+    device = next(func.parameters()).device  # get device(CPU/GPU) from `func`
     dim = x0.shape[1]
 
+    # initialize
     v = torch.zeros(n, dim, device=device)
-
     x = torch.rand(n - 1, dim)
-    x = (x > 0.9).type_as(x0)
+    x = (x > 0.9).type_as(x0)  # convert to binary
     x = torch.cat([x, x0], dim=0)
 
-    torch.set_grad_enabled(False)
     fit = func(x) if is_min else -func(x)
     min_fit = fit.min()
     best_v = min_fit
     best_s = x[fit.argmin()].reshape((1, -1))
-    best_list = []
+    best_v_list = []
 
     if progress:
         m = tqdm.tqdm(range(maxiter))
@@ -51,6 +52,7 @@ def bba(func, x0=None, n=200, maxiter=2000, topk=100, is_min=True, fmin=0, fmax=
         m = range(maxiter)
     for t in m:
 
+        # update parameters
         r = r0 * (1 - torch.exp(torch.tensor(-gamma * t, device=device)))
         loud_A *= alpha
 
@@ -61,10 +63,10 @@ def bba(func, x0=None, n=200, maxiter=2000, topk=100, is_min=True, fmin=0, fmax=
         x_new = x.clone()
 
         # flip
-        accept = torch.rand(n, dim, device=device) < vstf + 1 / 160
+        accept = torch.rand(n, dim, device=device) < vstf + 1 / dim
         x_new[accept] = 1. - x_new[accept]
 
-        # local opt
+        # accept local optimum
         accept = torch.rand(n, dim, device=device) > r
         x_new[accept] = best_s.expand(n, dim)[accept]
 
@@ -77,14 +79,15 @@ def bba(func, x0=None, n=200, maxiter=2000, topk=100, is_min=True, fmin=0, fmax=
         x[accept, :] = x_new[accept, :]
         fit[accept] = fit_new[accept]
 
+        # update best solution
         min_fit, argmin_f = fit.min(0)
-
         if min_fit < best_v:
             best_s = x[argmin_f].reshape((1, -1)).clone()
             best_v = min_fit.clone()
 
-        best_list.append(best_v if is_min else - best_v)
+        best_v_list.append(best_v if is_min else - best_v)
 
-    best_s_list = torch.unique(torch.cat((fit, x), dim=1), dim=0)[0:topk, :]
+    # postprcess, get ready to output
+    best_s_list = torch.unique(torch.cat((fit, x), dim=1), dim=0)[0:topk, :]  # delete repeated solutions
 
-    return (best_v if is_min else - best_v), best_s, best_s_list, best_list
+    return (best_v if is_min else - best_v), best_s, best_s_list, best_v_list

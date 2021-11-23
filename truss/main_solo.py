@@ -27,14 +27,16 @@ def main(args):
 
     for i in range(args.n_iter):
         n_old = args.n_0 + args.n * i
-        net.train(lr=0.001, batch_size=1024, n_epochs=1000, sample_interval=0)
+        net.train(lr=0.001, batch_size=1024, n_epochs=1000, sample_interval=0)  # train DNN
         base, prediction, inputs_g, v_list = net.opt(n=args.n_ba, maxiter=args.maxiter, seed=None, is_min=False, topk=n_greedy * args.topk_coef,
-                                                     low_mem=args.low_mem)
+                                                     low_mem=args.low_mem)  # perform BA optimization
 
-        inputs = unique(torch.cat([inputs, inputs_g]), n_old + n_greedy)  # old + greedy
+        inputs = unique(torch.cat([inputs, inputs_g]), n_old + n_greedy)  # generate new samples based on old & greedy (best ones from DNN)
         if n_regular > 0:
-            inputs_r = truss.generate_input(n_regular * args.topk_coef, base)  # regular, by disturbance
+            inputs_r = truss.generate_input(n_regular * args.topk_coef, base)  # generate new samples for regular (by disturbance)
             inputs = unique(torch.cat([inputs, inputs_r]), n_old + args.n)
+
+        # compute objective values
         outputs_new = func(inputs[n_old:])
         outputs = torch.cat([outputs, outputs_new])
 
@@ -78,7 +80,7 @@ if __name__ == '__main__':
     parser.add_argument("--low_mem", type=distutils.util.strtobool, default=True,
                         help="whether to use low memory mode of BA (float16 instead of default float32)")
     parser.add_argument("--topk_coef", type=int, default=10,
-                        help="when extracting data from BA/disturbance, more data (topk_coef*original) is needed in case some will be eliminated because of repeat")
+                        help="when extracting data from BA/disturbance, more data (topk_coef*original) is needed in case some will be removed because they're repeated")
     parser.add_argument("--n_ba", type=int, default=500000, help="number of bats in BA")
     parser.add_argument("--maxiter", type=int, default=100, help="number of iterations in BA")
     args = parser.parse_args()

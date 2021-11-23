@@ -4,21 +4,21 @@ import matlab.engine
 import optuna
 import scipy.io as scio
 
-n_trails = 20000
+n_trails = 20000  # `n_train` in paper
 study_name = 'cmaes_fine'
 storage = 'sqlite:///cmaes_fine.db'
 
+# search for Matlab engines
 names = matlab.engine.find_matlab()
 engs = []
 for name in names:
     engs.append(matlab.engine.connect_matlab(name))
 num_worker = len(names)
 time_start = time.time()
-eng = engs[0]
+eng = engs[0]  # only use one worker, no parallel
 
 
-# define study (the job for each worker)
-
+# define study (objective function)
 def objective(trial):
     variables = []
     for i in range(121):

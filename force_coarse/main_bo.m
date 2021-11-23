@@ -2,14 +2,15 @@
 %% initialization
 delta=0.25; %element size
 ratio=0.5; %ratio of material
-a=1;
-b=1;
-n_train=2000;
-nx=a/delta+1;
-ny=b/delta+1;
+a=1; % length of the design domain
+b=1; % width of the design domain
+n_train=2000; % number of total trial samples
+nx=a/delta+1; % number of design variables in x direction
+ny=b/delta+1; % number of design variables in y direction
+% get the weight matrix to calculate average volume (`w` in the paper)
 mask_x=ones(nx,1);mask_x(1)=0.5;mask_x(end)=0.5;
 mask_y=ones(1,ny);mask_y(1)=0.5;mask_y(end)=0.5;
-mask=mask_x*mask_y*delta^2;
+mask=mask_x*mask_y*delta^2; 
 
 %% implement BO
 

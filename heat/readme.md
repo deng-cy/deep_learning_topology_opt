@@ -52,9 +52,11 @@ from [Google Drive](https://drive.google.com/drive/folders/1f6Xrd9e-RAUsh9vqIqUX
 ## How to run
 
 1. Connect MATLAB with COMSOL server
-2. Run __heat.m__ by COMSOL to generate __heat.mph__
+2. Run __heat.m__ by COMSOL to generate __heat.mph__, or download it
+   from [Google Drive](https://drive.google.com/drive/folders/1f6Xrd9e-RAUsh9vqIqUXbEw8F1_2Qg_5?usp=sharing)
 3. Run __main_solo.m__ and __main_direct.m__
-4. Run __heat_approx.m__ by COMSOL to generate __heat_approx.mph__
+4. Run __heat_approx.m__ by COMSOL to generate __heat_approx.mph__, or download it
+   from [Google Drive](https://drive.google.com/drive/folders/1f6Xrd9e-RAUsh9vqIqUXbEw8F1_2Qg_5?usp=sharing)
 5. [optional] Run __plot_b.m__ and __plot_s7.m__
 6. [optional] Run __plot_c_d_e.m__
 

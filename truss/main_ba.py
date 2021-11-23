@@ -9,6 +9,8 @@ def main(args):
     logger = get_logger(args)
 
     logger.info(f'number of variables: {truss.n_bar}')
+
+    # perform BA
     v, s, v_list, *_ = ba(func=truss.get_function(), device=truss.device, dim=truss.n_bar, n=args.n_ba, maxiter=args.maxiter, is_min=True,
                           progress=True)
 

@@ -1,11 +1,13 @@
 %% comsol server required, you can jump to `plot` if data is downloaded
-model = mphload('fluid_optimized.mph');
-data=mpheval(model,{'dtopo1.theta'},'selection',2,'edim','domain','dataset','dset2');
 a=2;
 b=0.8;
 delta=0.05;
 nx=a/delta;
 ny=b/delta;
+
+% extract nodal values
+model = mphload('fluid_optimized.mph');
+data=mpheval(model,{'dtopo1.theta'},'selection',2,'edim','domain','dataset','dset2');
 indices=round(data.p./delta+1);
 input_node=zeros(nx+1,ny+1);
 for i=1:size(indices,2)
@@ -35,10 +37,11 @@ outputs = func_outputs_nowrite(inputs_unique,nx,ny);
 save('data_gb.mat','idx','outputs','inputs_unique');
 %val=2.003380528496133
 %% plot
-figure('Position',[0,0,750,300])
+font='Times';
 load('data_gb.mat');
+figure('Position',[0,0,750,300])
 input=inputs_unique(idx,:,:);
-h=heatmap(squeeze(1-input)','CellLabelColor','none','FontName','Times New Roman','FontSize',15);
+h=heatmap(squeeze(1-input)','CellLabelColor','none','FontName',font,'FontSize',15);
 colormap(gray)
 colorbar off
 h.Position=[0.05,0.1,0.9,0.9];

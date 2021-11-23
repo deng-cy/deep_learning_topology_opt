@@ -17,10 +17,9 @@ seed_opt=123; % BBA optimization random seed
 nx=a/delta; % number of design variables in x direction
 ny=b/delta; % number of design variables in y direction
 %% loops
-p=[0.1,0.1,0.2,0.2,0.2];
+p=[0.1,0.1,0.2,0.2,0.2]; % [a1,a2,a3,...,an] where `ai` (i<n) denotes the probability to mutate a ixi matrix, and `an` denotes crossover possbility
 for i=1:iter
     % get input/output file names
-    testfile=['./',folder,'/',num2str(n),'ntrain_test_step',num2str(i),'.mat'];
     optfile=['./',folder,'/',num2str(n),'ntrain_opt_step',num2str(i),'.mat'];
     trainfile=['./',folder,'/',num2str(n),'ntrain_train_step',num2str(i),'.mat'];
     

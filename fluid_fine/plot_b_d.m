@@ -13,11 +13,11 @@ fig=figure('Position',[0,0,1000,500]);
 plot([0,2500],[p0./output_gradient,p0./output_gradient],'--','Color',colors(8,:),'LineWidth',3);hold on;
 plot(func_best_min(g),'-','Color',colors(6,:),'LineWidth',3);hold on;
 xl=xlabel('$n_{train}$','Interpreter','latex');
-yl=ylabel('$\tilde{P}$','Interpreter','latex','Rotation',0);
+yl=ylabel('$\widetilde{P}$','Interpreter','latex','Rotation',0);
 [y,x]=min(g);
 scatter(x,y,300,colors(6,:),'x','LineWidth',2); hold on;
 
-lgd=legend('Gradient-based','SOLO-G','Interpreter','latex');
+lgd=legend('Gradient-based','SOLO-G');
 lgd.Position=([0.6529 0.7661 0.3305 0.2106]);
 ylim([0.8,0.853])
 

@@ -21,6 +21,7 @@ cmaes=[(1:numel(cmaes))',cmaes];
 colors=func_linspecer(5);
 %% energy (objective)
 figure;
+font='Times';
 % e0=1/func_outputs(reshape(ones(5,5)*0.5,1,5,5),1,1,0.25,'temp.txt');
 e0=1.2086492;
 plot(wl(:,1),func_best_min(wl(:,2))/e0,'-','Color',colors(1,:),'LineWidth',2);hold on;
@@ -29,13 +30,13 @@ plot(nl(:,1),nl(:,3)/e0,'o','Color',colors(2,:));hold on;
 plot(cmaes(:,1),func_best_min(cmaes(:,2))/e0,'--','Color',colors(3,:),'LineWidth',2);hold on;
 
 xlabel('$n_{train}$','Interpreter','latex')
-ylabel('$\tilde{E}$','Interpreter','latex')
+ylabel('$\widetilde{E}$','Interpreter','latex')
 % add convergence point
 y=func_best_min(wl(:,2));
 scatter(10243,y(10243)/e0,200,colors(1,:),'x','LineWidth',2); hold on;
 % set font etc
-legend('SOLO','Offline','CMA-ES','Interpreter','latex')
-set(gca,'FontSize',fontsize,'Fontname', 'Times New Roman') 
+legend('SOLO','Offline','CMA-ES')
+set(gca,'FontSize',fontsize,'Fontname', font) 
 ylim([0.20,1])
 box on
 %% prediction error of rho_hat
@@ -45,7 +46,7 @@ plot(nl(:,1),(nl(:,2)-nl(:,3))./nl(:,3),'o','Color',colors(2,:));hold on;
 
 plot([n_min,n_max],[0,0],'k:');
 xlabel('$n_{train}$','Interpreter','latex')
-ylabel('$e(\hat{\rho})/E(\hat{\rho})-1$','Interpreter','latex')
+ylabel('$e(\widehat{\mbox{\boldmath$\rho$}})/E(\widehat{\mbox{\boldmath$\rho$}})-1$','Interpreter','latex')
 legend('SOLO','Offline')
 set(gca,'FontSize',fontsize,'Fontname', 'Times New Roman') 
 

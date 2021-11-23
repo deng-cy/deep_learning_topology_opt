@@ -8,6 +8,7 @@ p0=g(161);
 %% set parameters and preprocessing
 g=round(p0./g,6); % there are equivalent solutions with very slight different outputs, use round to eliminate numerical error
 r=p0./r;
+font='Times';
 %% generate some beautiful colors
 colors=func_linspecer(8);
 %% energy (objective)
@@ -18,16 +19,16 @@ plot(func_best_min(g),'-','Color',colors(6,:),'LineWidth',3);hold on;
 plot(func_best_min(r),'-','Color',colors(7,:),'LineWidth',3);hold on;
 
 xl=xlabel('$n_{train}$','Interpreter','latex');
-yl=ylabel('$\tilde{P}$','Interpreter','latex','Rotation',0);
+yl=ylabel('$\widetilde{P}$','Interpreter','latex','Rotation',0);
 [y,x]=min(g);
 scatter(x,y,300,colors(6,:),'x','LineWidth',2); hold on;
 [y,x]=min(r);
 scatter(x,y,300,colors(7,:),'x','LineWidth',2); hold on;
 
-lgd=legend('Gradient-based','SOLO-G','SOLO-R','Interpreter','latex');
+lgd=legend('Gradient-based','SOLO-G','SOLO-R');
 lgd.Position=([0.6529 0.7008 0.3305 0.2692]);
 
-set(gca,'FontSize',fontsize,'Fontname', 'Times New Roman', 'Position',[0.1,0.13,0.7750,0.7950])
+set(gca,'FontSize',fontsize,'Fontname', font, 'Position',[0.1,0.13,0.7750,0.7950])
 xl.Position=[2.7169e+03 0.9605 -1];
 yl.Position=[-222.5806 0.9971 -1];
 ylim([0.955,1])
@@ -69,7 +70,7 @@ figure('Position',[0,0,500,200])
 [val, idx]=min(g);
 inputs=gdata.inputs;
 input=inputs(idx,:,:);
-h=heatmap(squeeze(1-input)','CellLabelColor','none','FontName','Times New Roman','FontSize',20);
+h=heatmap(squeeze(1-input)','CellLabelColor','none','FontName',font,'FontSize',20);
 colormap(gray)
 colorbar off
 h.Position=[0.1,0.2,0.8,0.8];
@@ -82,7 +83,7 @@ figure('Position',[0,0,500,200])
 [val, idx]=min(r);
 inputs=rdata.inputs;
 input=inputs(idx,:,:);
-h=heatmap(squeeze(1-input)','CellLabelColor','none','FontName','Times New Roman','FontSize',20);
+h=heatmap(squeeze(1-input)','CellLabelColor','none','FontName',font,'FontSize',20);
 colormap(gray)
 colorbar off
 h.Position=[0.1,0.2,0.8,0.8];

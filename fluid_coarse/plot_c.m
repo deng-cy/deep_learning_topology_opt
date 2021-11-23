@@ -1,11 +1,13 @@
 %% comsol server required, you can jump to `plot` if data is downloaded
-model = mphload('fluid_optimized.mph');
-data=mpheval(model,{'dtopo1.theta'},'selection',2,'edim','domain','dataset','dset2');
 a=2;
 b=0.8;
-delta=0.1;
+delta=0.05;
 nx=a/delta;
 ny=b/delta;
+
+% extract nodal values
+model = mphload('fluid_optimized.mph');
+data=mpheval(model,{'dtopo1.theta'},'selection',2,'edim','domain','dataset','dset2');
 indices=round(data.p./delta+1);
 input_node=zeros(nx+1,ny+1);
 for i=1:size(indices,2)
@@ -33,11 +35,13 @@ inputs_unique=reshape(unique(reshape(inputs,[],nx*ny),'row','stable'),[],nx,ny);
 outputs = func_outputs_nowrite(inputs_unique,nx,ny);
 [val, idx]=max(outputs);
 save('data_gb.mat','idx','outputs','inputs_unique');
-% 1.557373167442459
+% val=1.557373167442459
 %% plot
+font='Times';
+load('data_gb.mat');
 figure('Position',[0,0,500,200])
 input=inputs_unique(idx,:,:);
-h=heatmap(squeeze(1-input)','CellLabelColor','none','FontName','Times New Roman','FontSize',20);
+h=heatmap(squeeze(1-input)','CellLabelColor','none','FontName',font,'FontSize',20);
 colormap(gray)
 colorbar off
 h.Position=[0.1,0.2,0.8,0.8];

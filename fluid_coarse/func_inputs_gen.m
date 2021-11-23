@@ -1,16 +1,22 @@
 function inputs = func_inputs_gen(n,seed_gen,base,nx,ny,p,inputs_ori,n_coeff)
-% generate inputs by three ways based on args
+% generate new inputs (samples) by three ways based on args
 % 1) if `base` is empty, meaning the inital step, then 161 arrays will be
 % generated
 % 2) if `base` is not empty, `p` is empty, employ SOLO-G, return base
-% 3) if `base` is not empty, `p` is not empty, employ SOLO-R, add
-% disturbance
+% 3) if `base` is not empty, `p` is not empty, employ SOLO-R, add disturbance
+
+% Inputs:
+%   iter: number of total samples that needs to output
+%   base: base design, i.e., the optimized solution from DNN in SOLO
+%   p: empty or [a1,a2,a3,...,an] where `ai` (i<n) denotes the probability to mutate a ixi matrix, and `an` denotes convolution possbility
+%   inputs_ori: existing samples, used to remove repeated ones of new samples  
+%   n_coeff: a coefficient to generate more samples than needed. Since repeated samples will be deleted later, more samples are needed at the generation stage
 rng(seed_gen);
 base_empty=isempty(base);
 alpha=4;
 
 if ~exist('n_coeff','var')
-    n_coeff=100; % used when p exist
+    n_coeff=100; % set a default value, used when p exist
 end
 
 

@@ -12,15 +12,14 @@ results=zeros(iter,3); % initialize result table
 n=10; % number of additional samples per iteration
 n_0=161; % number of samples in the initial batch
 results(:,1)=(n:n:n*iter)';
-seed_train=3; % DNN training random seed
-seed_opt=123; % BBA optimization random seed
+seed_train=3; % random seed for DNN training
+seed_opt=123; % random seed for BBA optimization
 nx=a/delta; % number of design variables in x direction
 ny=b/delta; % number of design variables in y direction
 %% loops
 
 for i=1:iter
     % get input/output file names
-    testfile=['./',folder,'/',num2str(n),'ntrain_test_step',num2str(i),'.mat'];
     optfile=['./',folder,'/',num2str(n),'ntrain_opt_step',num2str(i),'.mat'];
     trainfile=['./',folder,'/',num2str(n),'ntrain_train_step',num2str(i),'.mat'];
     
@@ -31,7 +30,8 @@ for i=1:iter
     % eliminate invalid data
     inputs(outputs==Inf,:,:)=[];
     outputs(outputs==Inf)=[];
-    if i>1
+    
+    if i>1 % if not initial batch, combine data
         mydata=load(['./',folder,'/',num2str(n),'ntrain_train_step',num2str(i-1),'.mat']);
         inputs=[mydata.inputs;inputs];
         outputs=[mydata.outputs;outputs];

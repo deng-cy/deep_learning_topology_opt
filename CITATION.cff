@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Deng"
+  given-names: "Changyu"
+  orcid: "https://orcid.org/0000-0001-8339-4014"
+- family-names: "Wang"
+  given-names: "Yizhou"
+- family-names: "Qin"
+  given-names: "Can"
+- family-names: "Fu"
+  given-names: "Yun"
+- family-names: "Lu"
+  given-names: "Wei"
+
+title: "Self-Directed Online Machine Learning for Topology Optimization"
+doi: 10.5281/zenodo.5722376
+date-released: 2021-11-24
+url: "https://github.com/deng-cy/deep_learning_topology_opt"

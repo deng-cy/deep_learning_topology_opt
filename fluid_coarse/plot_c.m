@@ -1,7 +1,7 @@
 %% comsol server required, you can jump to `plot` if data is downloaded
 a=2;
 b=0.8;
-delta=0.05;
+delta=0.1;
 nx=a/delta;
 ny=b/delta;
 

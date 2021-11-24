@@ -35,7 +35,7 @@ inputs_unique=reshape(unique(reshape(inputs,[],nx*ny),'row','stable'),[],nx,ny);
 outputs = func_outputs_nowrite(inputs_unique,nx,ny);
 [val, idx]=max(outputs);
 save('data_gb.mat','idx','outputs','inputs_unique');
-%val=2.003380528496133
+% val=2.003380528496133
 %% plot
 font='Times';
 load('data_gb.mat');

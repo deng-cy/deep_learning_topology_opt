@@ -90,7 +90,7 @@ class Truss:
 
         dx = 120.  # distance between two adjacent nodes in x direction
         dy = 120.  # distance between two adjacent nodes in y direction
-        dz = 60  # # distance between two adjacent nodes in z direction
+        dz = 60  # distance between two adjacent nodes in z direction
         eps = 1e-6
         self.l = torch.tensor([dx, dy, dz]).to(self.device)
 

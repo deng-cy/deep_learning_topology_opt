@@ -3,8 +3,10 @@ import tqdm
 
 
 @torch.no_grad()
-def ba(func, dim=100, n=200, maxiter=2000, is_min=True, topk=100, fmin=0, fmax=1, loud_A=0.95, r0=0.85, alpha=0.999, gamma=0.1, w_init=0.9,
-       w_final=0.2, seed=None, progress=False, device=None):
+def ba(func, dim=100, n=200, maxiter=2000, is_min=True, topk=100, fmin=0, fmax=1, loud_A=0.95, r0=0.85, alpha=0.999, gamma=0.1, w_init=0.2,
+       w_final=0.9, seed=None, progress=False, device=None):
+    # TODO: I made a mistake here. The paper "A new modification approach on bat algorithm for solving optimization problems" suggests
+    #  w_init=0.9 and w_final=0.2. I used wrong numbers. I kept this mistake to help repeat my result, but you can change it for new problems
     """
     Bat Algorithm
     input:{ func: Evaluate_Function, type is nn.Module
@@ -56,7 +58,7 @@ def ba(func, dim=100, n=200, maxiter=2000, is_min=True, topk=100, fmin=0, fmax=1
         # update parameters
         r = r0 * (1. - torch.exp(torch.tensor(-gamma * t, device=device)))
         loud_A *= alpha
-        w = (1 - t / maxiter) ** 2 * (w_final - w_init) + w_init
+        w = (1 - t / maxiter) ** 2 * (w_init - w_final) + w_final
 
         freq = fmin + (fmin - fmax) * torch.rand(n, device=device).reshape((-1, 1))
         v *= w

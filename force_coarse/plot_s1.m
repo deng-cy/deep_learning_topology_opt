@@ -25,10 +25,10 @@ semilogx(nl(:,1),nl(:,3)/e0,'o','Color',colors(2,:));hold on;
 xlabel('$n_{train}$','Interpreter','latex')
 ylabel('$\tilde{E}$','Interpreter','latex')
 axis([nl(1,1)*0.9,n_max*1.1,0.29,0.45])
-legend('SOLO','SOLO$(\hat{\rho})$','Offline','Interpreter','latex')
+legend('SOLO','SOLO$(\widehat{\mbox{\boldmath$\rho$}})$','Offline','Interpreter','latex')
 
 %set xtick
-% xtick=[2e3 1e4 1e5 2e5];
+xtick=[2e3 1e4 1e5 2e5];
 temp=num2str(round(xtick(:)./(10.^round(log10(xtick(:))))), '%d\\times');
 xticklab = cellstr(num2str(round(log10(xtick(:))), '10^%d'));
 for i=1:numel(xtick)

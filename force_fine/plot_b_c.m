@@ -48,6 +48,6 @@ plot([n_min,n_max],[0,0],'k:');
 xlabel('$n_{train}$','Interpreter','latex')
 ylabel('$e(\widehat{\mbox{\boldmath$\rho$}})/E(\widehat{\mbox{\boldmath$\rho$}})-1$','Interpreter','latex')
 legend('SOLO','Offline')
-set(gca,'FontSize',fontsize,'Fontname', 'Times New Roman') 
+set(gca,'FontSize',fontsize,'Fontname', 'Times New Roman')
 
 

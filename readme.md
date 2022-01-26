@@ -1,8 +1,10 @@
 # Code for _Self-Directed Online Machine Learning for Topology Optimization_
+
 [This repository](https://github.com/deng-cy/deep_learning_topology_opt) contains code of the following paper:
 
-Changyu Deng, Yizhou Wang, Can Qin, Yun Fu, and Wei Lu. "Self-Directed Online Machine Learning for Topology Optimization." arXiv preprint arXiv:
-2002.01927 (2020) [Download](https://arxiv.org/pdf/2002.01927.pdf)
+Changyu Deng, Yizhou Wang, Can Qin, Yun Fu, and Wei Lu. "Self-Directed Online Machine Learning for Topology Optimization." Nature Communications
+13.1 (
+2022) [Website](https://www.nature.com/articles/s41467-021-27713-7) [Download](https://www.nature.com/articles/s41467-021-27713-7.pdf) [arXiv](https://arxiv.org/pdf/2002.01927.pdf)
 
 ## Contact
 
@@ -44,3 +46,18 @@ Higher versions should work fine. Lower versions may be compatible. Refer to the
 
 Please note that the reproducibility is not guranteed due to PyTorch platform (see
 its [documentation](https://pytorch.org/docs/stable/notes/randomness.html#reproducibility)), yet similar results are expected.
+
+## Alternative repositories
+
+There are four repositories that store the code/data of this work.
+
+Code only:
+
+* [Github repository](https://github.com/deng-cy/deep_learning_topology_opt) (most recommended). It contains latest code and directions to latest
+  data.
+* [Zenodo repository](https://zenodo.org/record/5722376). It contains releases of code.
+
+Code and data (including generated .mph files and optimization results):
+
+* [Google drive](https://drive.google.com/drive/folders/1f6Xrd9e-RAUsh9vqIqUXbEw8F1_2Qg_5?usp=sharing).
+* [Zenodo database](https://doi.org/10.5281/zenodo.5725598).

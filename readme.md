@@ -3,8 +3,7 @@
 [This repository](https://github.com/deng-cy/deep_learning_topology_opt) contains code of the following paper:
 
 Changyu Deng, Yizhou Wang, Can Qin, Yun Fu, and Wei Lu. "Self-Directed Online Machine Learning for Topology Optimization." Nature Communications
-13.1 (
-2022) [Website](https://www.nature.com/articles/s41467-021-27713-7) [Download](https://www.nature.com/articles/s41467-021-27713-7.pdf) [arXiv](https://arxiv.org/pdf/2002.01927.pdf)
+13.1 (2022) [Website](https://www.nature.com/articles/s41467-021-27713-7) [Download](https://www.nature.com/articles/s41467-021-27713-7.pdf) [arXiv](https://arxiv.org/pdf/2002.01927.pdf)
 
 ## Contact
 

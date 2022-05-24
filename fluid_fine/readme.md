@@ -20,7 +20,6 @@
 
 * <strong>main_*.m</strong>: MATLAB code to generate data
   * <strong>main_greedy.m</strong>: code to implement our proposed SOLO-G algorithm, and generate data in subfolder "data_g"
-  * <strong>main_regular.m</strong>: code to implement our proposed SOLO-R algorithm, and generate data in subfolder "data_r"
 
 * <strong>plot_*.m</strong>: MATLAB code to plot the data
   * <strong>plot_c.m</strong>: plot figure c

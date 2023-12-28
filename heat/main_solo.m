@@ -45,7 +45,7 @@ delta_xy=pdist2(coord_list,coord_list,'squaredeuclidean'); % distances between e
 % calculate \Phi matrix in paper (below Eq. 20)
 A=zeros(N+3,N+3); 
 A(1:N,1:N)=exp(-delta_xy./d^2);
-A(:,N+1)=1; % Note: I made a mistake here. This line should be "A(1:N,N+1)=1" to match the paper, although it should not matter much. I kept this mistake to help repeat my result, but you can change it for new problems
+A(:,N+1)=1; % TODO: I made a mistake here. This line should be "A(1:N,N+1)=1" to match the paper, although it should not matter much. I kept this mistake to help repeat my result, but you can change it for new problems
 A(1:N,N+2:end)=coord_list;
 A=triu(A)+triu(A,1)';
 
@@ -56,7 +56,7 @@ n_q=size(query_list,1);
 delta_xy=pdist2(query_list,coord_list,'squaredeuclidean'); % distances between each two integration points
 A_q=zeros(n_q,N+3); % a matrix that helps to get the \rho values at integration points
 A_q(:,1:N)=exp(-delta_xy./d^2);
-A_q(:,N+1)=1; % Note: I made a mistake here. This line should be "A_q(1:N,N+1)=1" to match the paper, although it should not matter much. I kept this mistake to help repeat my result, but you can change it for new problems
+A_q(:,N+1)=1; % TODO: I made a mistake here. This line should be "A_q(1:N,N+1)=1" to match the paper, although it should not matter much. I kept this mistake to help repeat my result, but you can change it for new problems
 A_q(:,N+2:end)=query_list;
 query_mask_list=reshape(query_mask,[],1); % Jacobian (weights) for integration points
 

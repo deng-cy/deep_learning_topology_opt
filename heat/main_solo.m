@@ -42,10 +42,10 @@ N=nx*ny;
 coord_list=reshape(coords(:,:,1:2),nx*ny,2);
 
 delta_xy=pdist2(coord_list,coord_list,'squaredeuclidean'); % distances between each two design variables
-% calculate \Phi matrix in paper (below Eq. 18)
+% calculate \Phi matrix in paper (below Eq. 20)
 A=zeros(N+3,N+3); 
 A(1:N,1:N)=exp(-delta_xy./d^2);
-A(:,N+1)=1;
+A(:,N+1)=1; % Note: I made a mistake here. This line should be "A(1:N,N+1)=1" to match the paper, although it should not matter much. I kept this mistake to help repeat my result, but you can change it for new problems
 A(1:N,N+2:end)=coord_list;
 A=triu(A)+triu(A,1)';
 
@@ -56,7 +56,7 @@ n_q=size(query_list,1);
 delta_xy=pdist2(query_list,coord_list,'squaredeuclidean'); % distances between each two integration points
 A_q=zeros(n_q,N+3); % a matrix that helps to get the \rho values at integration points
 A_q(:,1:N)=exp(-delta_xy./d^2);
-A_q(:,N+1)=1;
+A_q(:,N+1)=1; % Note: I made a mistake here. This line should be "A_q(1:N,N+1)=1" to match the paper, although it should not matter much. I kept this mistake to help repeat my result, but you can change it for new problems
 A_q(:,N+2:end)=query_list;
 query_mask_list=reshape(query_mask,[],1); % Jacobian (weights) for integration points
 
@@ -69,7 +69,7 @@ for i=1:iter
     
     inputs = single(func_inputs_gen((i==1)*n0+(i>1)*n,nx,ny,seed_gen,base,p));
     %%%%%%% choose between serial and parallel computation, "func_outputs" for serial and "func_outputs_par" for parallel %%%%%%%
-%     outputs = func_outputs(inputs,ratio,A,A_q,d,coord_list,query_mask_list,qtotal);
+    %     outputs = func_outputs(inputs,ratio,A,A_q,d,coord_list,query_mask_list,qtotal);
     outputs = func_outputs_par(inputs,ratio,A,A_q,d,coord_list,query_mask_list,qtotal,ports);
     
     inputs(outputs==Inf,:,:)=[];

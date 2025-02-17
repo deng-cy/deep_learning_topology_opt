@@ -7,6 +7,9 @@
 * Python 3.7
     * PyTorch 1.2.0
 
+> [!CAUTION]
+> Some users with COMSOL 6.0 or higher reported error when running the MPH file. (In MATLAB, it will report "calculation failed" and you can check "commandOut" variable to confirm it's a COMSOL error). I suggest using 5.4 or modify the model towards your needs instead of trying to replicate the results. 
+
 ## Code
 
 * <strong>heat.m</strong>: MATLAB script to generate a COMSOL file, used to calculate charging time based on given density distribution
